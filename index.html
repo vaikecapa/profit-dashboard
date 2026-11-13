@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f2f7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <script>
+      // Bank approvals (Enable Banking) return here with ?code=&state= (or ?error=): show them on bank.html.
+      (function () { var q = new URLSearchParams(location.search);
+        if ((q.has("code") && q.has("state")) || (q.has("error") && q.has("state"))) location.replace("bank.html" + location.search); })();
+      // Appearance chosen in Settings (auto | light | dark), applied before first paint.
+      try {
+        var a = localStorage.getItem("appearance");
+        if (a === "light" || a === "dark") {
+          document.documentElement.dataset.theme = a;
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.content = a === "light" ? "#f2f2f7" : "#121212"; });
+        }
+      } catch (e) {}
+    </script>
+    <meta name="robots" content="noindex" />
+    <title>Profit dashboard</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Profit" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-XGy8E26U.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BnX3X1T7.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
